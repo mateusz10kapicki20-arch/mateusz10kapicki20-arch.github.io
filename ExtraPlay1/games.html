@@ -25,6 +25,12 @@ a:hover {
 #logo {
   width: 80vw;
 }
+.gameIconContainer {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  color: white;
+}
 .gameImage{
   border-style: outset;
   border-width: 10px;
@@ -34,9 +40,20 @@ a:hover {
   border-radius: 20px;  
   box-shadow:20px 20px 10px rgba(0, 0, 0, 0.2);
 }
-
 .gameImage:hover {
   filter: brightness(150%);
+}
+.gameIconName {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  bottom: 15%;
+  background-color: rgba(128, 0, 0, 0.3);
+  color: lightgoldenrodyellow;
+  text-shadow: 0 0 10px black;
+  border-radius: 0.5em;
+  pointer-events: none;
+  line-height: 100%;
 }
 </style>
 </head>
@@ -571,11 +588,12 @@ var gamesBlockTopClicks = ["Dotted-Girl-Resurrection-Emergency,6f0c070578e54335a
 //alert(gamesBlockNew.length); //1839 1500 1539 1578 1617 1656 1695 1734 1773 1812 1839
 
 var text = "";
-
+var gameName = "";
 var i;
 for (i = 0; i < gamesBlock.length; i++) {
+gameName = game[0].replace(/-/g, " ");
 var game = gamesBlock[i].split(",");
-text += "<a href=loader.html?"+gamesBlock[i]+",hof1"+"><img class=gameImage src=https://img.gamedistribution.com/"+game[1]+".jpg></a>";
+text += "<div class=gameIconContainer><a href=loader.html?"+gamesBlock[i]+",hof1"+"><img class=gameImage src=https://img.gamedistribution.com/"+game[1]+".jpg></a><div class=gameIconName>" + gameName + "</div></div>";
 }
 
 document.getElementById("demo").innerHTML = text;
