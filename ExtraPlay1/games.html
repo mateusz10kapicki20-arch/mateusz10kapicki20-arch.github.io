@@ -588,12 +588,10 @@ var gamesBlockTopClicks = ["Dotted-Girl-Resurrection-Emergency,6f0c070578e54335a
 //alert(gamesBlockNew.length); //1839 1500 1539 1578 1617 1656 1695 1734 1773 1812 1839
 
 var text = "";
-var gameName = "";
 var i;
 for (i = 0; i < gamesBlock.length; i++) {
-gameName = game[0].replace(/-/g, " ");
 var game = gamesBlock[i].split(",");
-text += "<div class=gameIconContainer><a href=loader.html?"+gamesBlock[i]+",hof1"+"><img class=gameImage src=https://img.gamedistribution.com/"+game[1]+".jpg></a><div class=gameIconName>" + gameName + "</div></div>";
+text += "<div class=gameIconContainer><a href=loader.html?"+gamesBlock[i]+",hof1"+"><img class=gameImage src=https://img.gamedistribution.com/"+game[1]+".jpg></a><div class=gameIconName>" + game[0].replace(/-/g, " ") + "</div></div>";
 }
 
 document.getElementById("demo").innerHTML = text;
