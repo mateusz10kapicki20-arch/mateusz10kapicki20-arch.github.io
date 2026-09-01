@@ -1,0 +1,223 @@
+<!--Baohong Yong LingPo (make happy customer Tianjinv) 1.1a-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Play This!</title>
+    <meta charset="utf-8"/>
+    <meta content="noindex,nofollow" name="robots">
+    <base target="_top">
+
+    <style>
+        body {
+            overflow: hidden;
+            text-align: center;
+            background-image: linear-gradient(lime, blue);
+        }
+
+        .gameImg {
+            display: inline-block;
+            margin: 0.5vmin;
+            border: 7px solid white;
+            border-radius: 20px;
+            /* transition:2s; */
+            height: 196px;
+            width: 272px;
+            max-width: 20vw;
+            max-height: 20vw;
+        }
+
+        .gameImg:hover {
+            filter: contrast(150%);
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="games"></div>
+
+    <script>
+        var gamesBlock = [
+            
+            // http://instantgamesstudio.com/
+            //["10c21fcfdd6d49e3bc2ac189d8dcbc23-512x384.jpeg"],
+            ["a94c6436a05b496d88711fe5851830e3-512x384.jpeg"],
+            ["9591627286484aee81b79d6f54479176-512x384.jpeg"],
+            ["05612c7ae95c42cc9de7b901473345b4-512x384.jpeg"],
+            ["cb694595eb544267a97d52e3e30303ce-512x384.jpeg"],
+            ["305b8559e5284e3f806726e1cf9ef5f7-512x384.jpeg"],
+            ["67d82f07739b4ef6a8a6f2cff61ae627-512x384.jpeg"],
+            ["c6332e3d12d04aaba033a4953363737f-512x384.jpeg"],
+            ["7f4faeded956426da5a44214bf553998-512x384.jpeg"],
+            ["f3e855e3a9bf4fe3af9160dd972bf756-512x384.jpeg"],
+            ["8833244acec6492f8aefeec3c4f10a28-512x384.jpeg"],
+            ["162dadc820ba4f6dbe8da350622c4b0a-512x384.jpeg"],
+            ["98a7de4e44a54e2c8d1df1fd350e06b8-512x384.jpeg"],
+            ["59ec233cc41d498496b9f2d6e1969b51-512x384.jpeg"],
+            ["872bf7eec4db4930ad61a4f1aec19d5c-512x384.jpeg"],
+            ["0e4a0810f7da40a79b01b4f040e7383b-512x384.jpeg"],
+            ["6d43fd3ce80a49e69b2c7c42ae7c13c9-512x384.jpeg"],
+            ["9b91d6608e7f4f0ea74d6e55aef6f3cd-512x384.jpeg"],
+            ["738f007f9be14ceba8ef04ee83c9f1a3-512x384.jpeg"],
+            ["c568f9c5dc9a4aed9a7488d32f0238ee-512x384.jpeg"],
+            ["0e219cc9918145b099dfc1c4890fb599-512x384.jpeg"],
+            ["1150ab4f955343d09d171cbdaad9dfea-512x384.jpeg"],
+            ["69d8e4a030994d278ab74a7938a32398-512x384.jpeg"],
+            ["57631f66ccc64c978f06b89dd5575688-512x384.jpeg"],
+            ["c80552edcfaf4cafb9eb9f20dee98196-512x384.jpeg"],
+            ["0cc59a7efe7049329412a0a819e07bd1-512x384.jpeg"],
+            ["f921976e387e4dcf89c0ebe84ff9ae2c-512x384.jpeg"],
+            ["565f2ece78f449738659f3750bc7314c-512x384.jpeg"],
+            ["620586734576432db5d33390796dd0c5-512x384.jpeg"],
+            ["9353f4aed7c7426798f93ed3227165ed-512x384.jpeg"],
+            //["57db290e0eed40b4a2c0dbc069c07172-512x384.jpeg"],
+            ["67b039f85f014ab3a47e8cdfaf46f5ad-512x384.jpeg"],
+            //["1581c21e44d34ec09a4194477001db1e-512x384.jpeg"],
+            ["61b83c669e964495b91b13598e34206e-512x384.jpeg"],
+            ["85cd1bbbe6624e8ba35154473050e9be-512x384.jpeg"],
+            ["ca680eb1e8894ed7b27fbc855606de2e-512x384.jpeg"],
+            ["4c72ea9bb880499dad1bf99d1bf66eda-512x384.jpeg"],
+            ["e5d274c2d7a24eba89f0ea10654002b9-512x384.jpeg"],
+            ["7d57260b32ef42a6bd8eedf9e58a9fab-512x384.jpeg"],
+            ["f61c13bbcbf948d5855d34570b15355e-512x384.jpeg"],
+            //["b43fc314378c4752ad837f460a374346-512x384.jpeg"],
+            //["1e8dd736a1ee4e4eb05f006a7f8fa0df-512x384.jpeg"],
+            ["c9eab2dcf7f3459180a11f9662765e8e-512x384.jpeg"],
+            ["01a0f28d6ec2442fba4d4ea35432ed9e-512x384.jpeg"],
+            //["0c35ce8507584ed19519a6aa6de65c26-512x384.jpeg"],
+            ["2378d936f8ad4f38930d950a24b5c155-512x384.jpeg"],
+            ["aa4eb96be6d34dafb65edfab319e6080-512x384.jpeg"],
+            ["e1d19eb65f4b420d847e8716134b84f3-512x384.jpeg"],
+            //["35ccb64e41414b5fa95167aab0b072f6-512x384.jpeg"],
+            ["c870f509c0c44b5482f61496b86cb4c2-512x384.jpeg"],
+            ["1ab0c73c8454449299df542581d4239a-512x384.jpeg"],
+            //["ab4e67cfc36c4ffaa586e98889b840bd-512x384.jpeg"],
+            ["c9ec972c2a0d4c59821b5c639dfa6d12-512x384.jpeg"],
+            //["73ebf26114c34619bc1fcf8709f9a75c-512x384.jpeg"],
+            //["470148a26c254a28bb27485a3e7252cd-512x384.jpeg"],
+            ["4769febf9477478abcc533e9cbcc6f43-512x384.jpeg"],
+            //["0e5e87715e29454682090e10f63be39b-512x384.jpeg"],
+            //["79d3a1d726e341d4a7260903dcfb52ec-512x384.jpeg"],
+            //["d3ae817b49a9413891970793c6222a04-512x384.jpeg"],
+            ["0887a9edc4cf4609ba199fe7656151e0-512x384.jpeg"],
+            ["9e7ce2b4be244373a936466545876411-512x384.jpeg"],
+            //["003e0e4e82fa4604a3781ea69180f031-512x384.jpeg"],
+            //["dd762145df6c459ebc564190707ef20c-512x384.jpeg"],
+            ["28238389f1fa4803b62ecf79c6346f04-512x384.jpeg"],
+            ["4f5b72936b9949ba8b38217d27729e00-512x384.jpeg"],
+            ["8b2b9df31cec4613bdb32479902d62be-512x384.jpeg"],
+            ["8eb5cdd9a29240e38c26ea1eba9cdc64-512x384.jpeg"],
+            ["05f7f4b1b68c48cf917bbf6056cde763-512x384.jpeg"],
+            ["c7cfe5d4311741ef9c90e5fc87e11792-512x384.jpeg"],
+            //["8511629d968e41b5b12bb97fa0323df7-512x384.jpeg"],
+            ["a7168d7f4f234b6cae5a1e27b46804cd-512x384.jpeg"],
+            ["bc9fb1bdef784babad1968ea55608f32-512x384.jpeg"],
+            ["267deb6e2d2c42d4ad4852f372d8e75f-512x384.jpeg"],
+            ["6b17bfec57a14593b07329dd60dca8ff-512x384.jpeg"],
+            ["67ba8bf45064426c837d2fc2441f829b-512x384.jpeg"],
+            ["61db333d69594e5f9f38dabd518355d0-512x384.jpeg"],
+            ["b783cd2420f14b44bcfb6773f54e1060-512x384.jpeg"],
+            ["b71aa7606c364db0a81a019a5204f92c-512x384.jpeg"],
+            //["8b360a0bfd68442e9b6d6544e5c04e0c-512x384.jpeg"],
+            ["ed9a69999a474906bf8397192ab79711-512x384.jpeg"],
+            //["e46f8c0bbd884e72a7f87a726e79f213-512x384.jpeg"],
+            //["ea3d950aaaba4233869251ba349219df-512x384.jpeg"],
+            ["bc463f4887194a599a148f6fdfbe709c-512x384.jpeg"],
+            ["cbec29358df940abb62ae923424e8fd3-512x384.jpeg"],
+            //["5642504b532b453eaf0b733a80eb4e1e-512x384.jpeg"],
+            ["097dc49017614aabaa191c3ddb3a3d51-512x384.jpeg"],
+            ["1669d80847aa4c1f87279ed0662293f4-512x384.jpeg"],
+            //["2f7888832253420c97919345f242004b-512x384.jpeg"],
+            ["1d6f90d0ab0e4d2883bae7b4e09ead27-512x384.jpeg"],
+            
+            // http://www.beedogames.com/
+            ["6ccd5ca68c274a7082c34b3a6fb195cd-512x384.jpeg"],
+            ["c93c365c0c9146ed99988bdae20ba83e-512x384.jpeg"],
+            ["f7d5fd0dec67452daa221a46dd419791-512x384.jpeg"],
+            ["fe774a5b470b46bba6a5ac684da7fcc7-512x384.jpeg"],
+            ["392a0ac5e2a54089a02a957fa6758105-512x384.jpeg"],
+            //["c5e6a947c3bc40b6b4cfb3aca60de555-512x384.jpeg"],
+            ["62790a84b0934e609aa372143f22dc1e-512x384.jpeg"],
+            ["ea0c374753534f47bc32ddb154bbedf5-512x384.jpeg"],
+            ["5c519ae1e3904dc78daad40f988edf02-512x384.jpeg"],
+            ["bd69e72a170c42828647b48d53b0f0a3-512x384.jpeg"],
+            ["7832e3935aa94ae194cc492d4bd5ade2-512x384.jpeg"],
+            ["0f8059731d954f1081a8a600bb54cb65-512x384.jpeg"],
+            ["2fce93efe4ba4168a86a1a45a6ab264f-512x384.jpeg"],
+            ["b47e60c1b75b4a8ba83c7d6cbceecbff-512x384.jpeg"],
+            ["776fa37ed20743b18e38c4e6ecc178bf-512x384.jpeg"],
+            ["aed4be9510b84d9d8540ccdb4c6d0269-512x384.jpeg"],
+            //["c574ed109032418d843d049052d328de-512x384.jpeg"],
+            ["6ee0fa57e6f541f1860bc6c7230bc0f2-512x384.jpeg"],
+            ["0c0fc1d9263e4158972cef31fa752c83-512x384.jpeg"],
+            ["ad4eae909ec744f79db3c71a62d69c3b-512x384.jpeg"],
+            ["b269d132a75c4f7a8de02522192ed7b3-512x384.jpeg"],
+            ["59a98bf799ef499d9d7b9285bccaa196-512x384.jpeg"],
+            //["c3ba63ed4b7a4ce6816bf7cfd2e1dc86-512x384.jpeg"],
+            ["62014c3dd1dc4b13b8fb3013a8949639-512x384.jpeg"],
+            ["1c96fe4b2eda46eba33f6c36d5a825d9-512x384.jpeg"],
+            ["df076173ce864571b0d3f35327734d32-512x384.jpeg"],
+            ["21c65e18b21b4044b2272c18b6f7f6a8-512x384.jpeg"],
+            ["4b4cc06e329d4566b2c57dd38ba47a17-512x384.jpeg"],
+            ["83691ec1dd8c4384b1c33fb47fd63f73-512x384.jpeg"],
+            ["5f328ff269d34a94aeb25a69477f58a2-512x384.jpeg"],
+            ["57764b3be1924b7d821ef61a8fb8793a-512x384.jpeg"],
+            ["80d1a7e3b35442468d4057accddb9810-512x384.jpeg"],
+            ["80b465e12d3f4508b102835c4a51a0bc-512x384.jpeg"],
+            //["da33a0677469442880edcda3616529ff-512x384.jpeg"],
+            
+            // artbit / https://playnowonphone.com/
+            ["a3c2f1f610b647b49babdab3e39cfd0f.jpg"],
+            ["da3da86c2b2043dcbb10567baad6a6e5.jpg"],
+            ["355cfe2153464c15be29c75411ccc0f9.jpg"],
+            ["3a4d8e00bd124629ae88510cdc36a57f.jpg"],
+            ["1cc3cab863994c01aec94894b9e05d9e.jpg"],
+            ["43d3e50e255541bab79c494a64c69045.jpg"],
+            ["eab3e7bbf9f44869943deac9a606ed32.jpg"],
+            ["00925361587c4e4e9598cab1e813502f.jpg"],
+            ["ea64d878cb2c44b3b1fde467241be1ce.jpg"],
+            ["787e5175d4954343bdc64af9facda9d4.jpg"],
+            ["21858fcc2a104ee185a47f92e0bae908.jpg"],
+            ["91344cf7d4094dd4aee77c497b0a2110.jpg"],
+            ["1b55d7a8434d4bcdb7d2d9eaa27c3ea9.jpg"],
+            ["3e5a35c2ac9f46ed9389df608d2488f4.jpg"],
+            ["23b65bcb779646fb98eb0650db68bef3.jpg"],  
+                
+                //duplicates
+                ["6d43fd3ce80a49e69b2c7c42ae7c13c9-512x384.jpeg"],
+                ["67d82f07739b4ef6a8a6f2cff61ae627-512x384.jpeg"],
+                ["ca680eb1e8894ed7b27fbc855606de2e-512x384.jpeg"],
+                ["98a7de4e44a54e2c8d1df1fd350e06b8-512x384.jpeg"],
+                ["c568f9c5dc9a4aed9a7488d32f0238ee-512x384.jpeg"],
+                ["355cfe2153464c15be29c75411ccc0f9.jpg"],
+                ["da3da86c2b2043dcbb10567baad6a6e5.jpg"],
+                ["ea64d878cb2c44b3b1fde467241be1ce.jpg"],
+            
+        ];
+
+        var gamesOutput = "";
+        var gameString;
+        for (i = 0; i < 4; i++) {
+            
+            
+            console.log(i);
+            
+        //for (i = 0; i < gamesBlock.length; i++) {
+            var selectedGame = Math.floor(Math.random() * gamesBlock.length);
+            //var selectedGame = i; //show all games
+            gameString = gamesBlock[selectedGame].toString();
+            gameString = gameString.slice(0, 32);
+            console.log(gameString);
+            
+            gamesOutput += "<a href='loader888.html?" + escape( 'https://html5.gamedistribution.com/' + gameString + '/') + "'><img class=gameImg src=https://img.gamedistribution.com/" + gamesBlock[selectedGame] + "></a>";
+        }
+        games.innerHTML = gamesOutput;
+
+    </script>
+
+</body>
