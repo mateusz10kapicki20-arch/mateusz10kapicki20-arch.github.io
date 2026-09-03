@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta name="robots" content="noindex,nofollow">
+<title>Run Hopy Run Game</title>
+<style type="text/css">body{margin:10;background:#00AA33 url('../gameback.png') no-repeat top center;color:#FFFFFF;font-family:arial,helvetica,sans-serif;font-size:small;text-align:left;}a{text-decoration:none;color:#FFFFFF;}a:visited{color:#FFFFFF;}a:active{color:#FFFFFF;}a:hover{color:#00FFFF;}.table{background-image:url('../adpanelx.gif');}.gamestyle{border-color:#008822;background-color:#0066AA;font-family:arial,helvetica,sans-serif;font-size:small;text-align:left;box-shadow: 10px 10px 5px #550066;}</style>
+</head>
+<body>
+ 
+<form name="receive"><input type="hidden" name="dt"></form>
+<center>
+
+<script language="javascript" type="text/javascript">
+var locate=window.location;
+document.receive.dt.value=locate;
+var tx=document.receive.dt.value;
+function ex(str){
+var l=str.indexOf("=")+1;
+return(str.substring(l,str.length));}
+var gamemb=ex(tx);
+var wh=document.body.clientHeight;
+var sp=(wh-418)/2;
+var nl=true;if(window==top)nl=false;
+if(nl){document.write('<table border="0" cellspacing="0" cellpadding="0"><tr><td height="'+sp+'"></td></tr></table>');}else{document.write('<object width="972" height="120"><param name=movie value="../header.swf?gamename=Run%20Hopy%20Run"><param name="wmode" value="transparent"><embed src="../header.swf?gamename=Run%20Hopy%20Run" width="972" height="120" wmode="transparent"></object><br><br>');sp=0;gamemb=0;}
+</script>
+
+<table style="width: 690px" cellspacing="0" cellpadding="20" class="gamestyle"><tr><td>
+
+<object width="650" height="500"><param name="movie" value="runhopyrun.swf"><param name="wmode" value="window"><embed src="../runhopyrun/runhopyrun.swf" width="650" height="500" wmode="window"></object>
+
+</td></tr><tr><td><center>
+Run Hopy Run - Description and Walkthrough to follow.<br><br>
+<b><a href="https://www.chillcade.net/" target="_self" rel="nofollow">- Back To Chillcade Main Menu -</a></center></b><br>
+</td></tr></table>
+
+<br><br>
+
+</center>
+</body>
+</html>
