@@ -9,11 +9,12 @@
         color: white;
         font-size: 1.5px;
         text-align: center;
-        background: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+        background: linear-gradient(225deg, red, orange, yellow, green, blue, indigo, violet);
       }
 
-      span, #block {
-        margin: 10px;
+      #block {
+        margin-top: 10px;
+        margin-bottom: 10px;
       }
 
       .gameIcon {
@@ -27,14 +28,32 @@
       }
 
       #logo {
-        width: 800px;
+        width: 80vw;
+        background-image: url("chillcade-logo-min.png");
+        background-repeat: no-repeat;
       }
       </style>
   </head>
 <body>
-      <img id="logo" src="chillcade-logo-min.png">
-  <span id="block">
-      <a href="f/games/runhopyrun.html"><img class="gameIcon" src="runhopyrun.jpg"></a>
-  </span>
+<div id="logo"></div>
+<p id="block"></p>
+  <script>
+     var games = [
+       "Run-Hopy-Run"
+     ];
+    
+      var text = "";
+      var gameID = "";
+      var i;
+      for (i = 0; i < games.length; i++) {
+        var game = games[i].split(",");
+        if (game[1].indexOf(selected) > -1) {
+           gameID = game[0].replace(/-/g, "").toLowerCase();
+           gameID = gameID.replace(/'/g, "");
+           text += "<a href=f/games/" + gameID + ".html><img class=gameIcon src=" + gameID + ".jpg></a>";
+        }
+      }
+    block.innerHTML = text;
+  </script>
 </body>
 </html>
