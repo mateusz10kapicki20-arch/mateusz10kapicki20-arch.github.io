@@ -1,0 +1,117 @@
+@font-face {
+font-family: GamesOnlineFont;
+font-display: swap;
+src: url(fonts/SquadaOne-Regular.ttf);
+}
+
+html {
+cursor: url("cursormin.png"),auto;
+} 
+body {
+background:url(gameBackMin.png) #001144; 
+margin:0; 
+padding:0; 
+color: #6600CC; 
+font-family:GamesOnlineFont, Arial, Helvetica, sans-serif; 
+overflow:hidden;
+text-align: center;
+}
+a:link{
+color:#633;
+}
+a:visited{
+color:#633;
+}
+a:hover{
+color:#755;
+}
+a:active{
+color:#866;
+} 
+a,a:active {
+cursor: url("cursormin.png"),auto;
+}
+#gamename, img {
+background:transparent; 
+vertical-align:middle;
+}
+#logo {
+position:absolute; 
+bottom:100px; 
+right:100px; 
+width:292px; 
+height:207px; 
+background:url(logo-gamesonline.png) no-repeat; 
+z-index:10;
+}
+#logo-table {
+position:absolute; 
+bottom:30px; 
+height:40px; 
+font-size:16px; 
+right:67px; 
+width:160px; 
+text-align:center; 
+font-weight:bold; 
+font-family:GamesOnlineFont, Arial, Helvetica, sans-serif;
+}
+#logo-table h1 {  
+padding:0; 
+margin:0; 
+text-indent:-9000px;
+}
+
+#gamesBlock {
+margin-top: 3vmin;
+}
+
+        #menuBar {
+            background-color: deepskyblue;
+            border-radius: 0 0 1em 1em;
+            padding: 0.2em;
+        }
+        
+        .menuBarItem {
+            display: inline-block;
+            color: gold;
+            border: 1vmin outset navy;
+            background-color: dodgerBlue;
+            border-radius: 2vmin;
+            margin: 0.2em;
+            padding: 0.5em;
+            cursor: url("cursormin.png"),auto;
+            transition: 1s;
+        }
+        
+        .menuBarItem:hover {
+            filter: hue-rotate(30deg);
+        }
+        
+        #results {  
+            padding-bottom: 1vh;
+            font-size:1.6em;
+            color: yellow;
+        }
+    
+
+    .gameIconContainer {
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        color: white;
+    }
+        
+    .gameIcon{
+        border-style: outset;
+        border-width: 5px;
+        border-color: #2255CC;
+        margin: 5px;
+        height: 60px;
+        border-radius: 20px;  
+        box-shadow:10px 10px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .gameIcon:hover {
+        filter: brightness(150%);
+    }
+
