@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<link href="gamestyle.css" rel="stylesheet">
+</head>
+<body>
+<div id="logo"><div id="logo-table"><table><tr><td height="40" width="160" id="gamename">Welcome to GamesOnline</td></tr></table><h1>Yihuu Games</h1></div></div>
+        <div id="menuBar">
+            <div class="menuBarItem" onclick="showGames('-');">All</div>
+            <div class="menuBarItem" onclick="showGames('ac');">Action</div>
+            <div class="menuBarItem" onclick="showGames('ad');">Adventure</div>
+            <div class="menuBarItem" onclick="showGames('cr');">Craft</div>
+            <div class="menuBarItem" onclick="showGames('jb');">Jobs</div>
+            <div class="menuBarItem" onclick="showGames('ms');">Motorsport</div>
+            <div class="menuBarItem" onclick="showGames('mp');">Multiplayer</div>
+            <div class="menuBarItem" onclick="showGames('mmo');">MMO</div>
+            <div class="menuBarItem" onclick="showGames('pl');">Platform</div>
+            <div class="menuBarItem" onclick="showGames('pz');">Puzzle</div>
+            <div class="menuBarItem" onclick="showGames('sp');">Sport</div>
+            <div id="results"></div>
+        </div>
+<main id="gamesBlock"></main>
+<script>
+var joker=0;var yuzz = "";var kaza = "";var l = location;var ce = 0;var de = 0;
+yuksek = $(window).height()-4;
+genis = $(window).width()-60;var per = 19; var pera = 11;
+birgenis = (genis/per)-18;
+biryuksek = (yuksek/pera)-18;
+birgenis = Math.floor(birgenis);
+biryuksek = Math.floor(biryuksek);
+if (biryuksek > birgenis) {biryuksek = birgenis} else{birgenis = biryuksek}
+genislik = (birgenis+18)*per;
+yukseklik = (birgenis+18)*pera;
+haha = Math.round((yuksek - yukseklik)/2);
+hahaha = Math.round((genis - genislik)/2)+30;
+
+$('#gamesBlock img').live("mouseenter", function() {
+	$('#gamename').html($(this).attr("title"));
+}).live("mouseleave", function() {
+	$('#gamename').html("");
+	});
+
+$('#logo').mouseover(function() {
+
+if(yuzz=="100px"){
+$(this).slideUp(500, function() { if(de==0){$(this).css({"right": yuzz, "bottom" : yuzz}).slideDown(500);} de+=1; yuzz="";});ce=0;ze=0;}
+
+if(yuzz==""){
+$(this).slideUp(500, function() { if(ce==0){ $(this).css({"right": (genis-381)+"px", "bottom" : (yuksek-295)+"px"}).slideDown(500);} ce+=1; yuzz="100px"; });de=0;ze=0;}
+
+});
+
+            //ac-Action ad-adventure cr-Craft du-Dressup jb-Jobs ms-motorsport mmo-MMO mp-Multiplayer pl-Platform pz-Puzzle rt-Retro sp-Sport st-Strategy
+            //"The-Heist,cf7c8d8d0bb342eeb1e6d56f2d9ed1c8,ac-xx", //black screen
+            //"Archery-War,9296dcc74e604b32b5e7d2ffb90c3746,ac-xx", //instant link-out
+            //"1-vs-1-Soccer,8ea3227da34148c8b61633b5b2121196,ac-xx", //failed to start
+
+            var games = [
+                "Angry-Worms,978ba8edf7b344868218723891980525,ac-mmo-xx",
+                "Monster-Foot-Doctor,7f3f9e4abbe542a0896823180b8c3a89,jb-xx",
+                "A-Maze-Race-II,23c4b304d7d94a2991d491f455ecad0a,ac-pz-xx",
+                "Pac-Xon,210802df55454737b3ef7f901c0de8d3,ac-pz-xx",
+                "Master-Chess,b2a3398e327b4f6da665759d6730aab4,pz-st-xx",
+                "Mini-Coloring-Book,d9be760072344ed6ac640af60c2826bd,cr-xx",
+                "Mexico-Rex,024bd7264a574b4682d5640e9b0de8e0,ac-ad-pl-xx",
+                "Snail-Bob,b115976d62a64cff8ca1cee6c971d61c,pz-pl-xx",
+                "Money-Movers,c035e676ef654227b1537dabbf194e00,pz-pl-xx",
+                "Greyhound-Racing,28aad67b0b39407c93b372e83cb8cc88,sp-st-xx",
+                "CandyIO,eceebc4946414da1b9bcce76801edc42,ac-mmo-xx",
+                "Adam-and-Eve,14be1af7c626473893e1f79a40ad85c6,px-ad-xx",
+                "Parking-Fury-2,1b05720348e145ccbe69a28a062d0220,ms-pz-ac-xx",
+                "Foosball,0f38da229ce44294b5aeaa52771b1608,sp-mp-ac-xx",
+                "Bob-the-Robber-3,16eb5eb6f9b841688478eb635fde78b5,pz-pl-xx",
+                "Dynamons-World,14d10c2b37794aafad858a6e90120e23,ac-st-xx",
+                "Fidget-Spinner-Mania,b7e6d0c0d16b4e9ab81e42ce25a5fa5c,ac-xx",
+                "Super-Robo-Fighter-2,bb1dad09968246969ca9ba9b4c265177,pz-xx",
+                "Wordsearch,cb4c4a7ce043400e8159ab6fb67d11aa,pz-xx",
+                "Slither-Birds,b7ba4a1fec594e51b4b4acafab4dee7f,ac-mmo-xx",
+                "Bob-The-Robber-4,f7f522cafad845d68fcddadbcb581087,pz-pl-xx",
+                "Football-Headz-Cup,3c0cf852685949ddb2f3dea2ca32d907,sp-ac-xx",
+                "Parking-Fury,919e83dbc31749e1a54787e656ce513b,ac-xx",
+                "Money-Movers-2,de857b96d0a540e18b2a4037a8b7d6d8,pl-pz-xx",
+                "LA-REX,25a66b4cf54245c88237c7e5a154f315,ac-ad-xx",
+                "The-Last-Survivors,8156e4c8e28e4425befb8d969759dd48,pz-pl-xx",
+                "Mini-Brain-Doctor,8838ae53f7c9403a81f8816f1c9dcea7,jb-xx",
+                "Adam-and-Eve-2,bcf3d73331764b90af2b00f147745fe0,pz-ad-xx",
+                "Grindcraft,92a81cc3a9da4cde89a418ae6bd4b4c4,cr-pz-xx",
+                "Funny-Soccer,b12d1d6e10624959a15c8583051fffd1,ac-xx",
+                "X-Trial-Racing,45b2717c0dba4097871c839c1ebcaa6d,ac-ms-xx",
+                "Car-Rush,8d415ce5fb3e4456be9ef2d1f95a2167,ac-ms-xx",
+                "Wheely-2,68ac1f7590ef439e92765e4199779d65,pz-pl-xx",
+                "Fruit-Connect,ab4cd1057489401899c5b8f1e050070f,pz-xx",
+                "Color-Cool-Vehicles,82b943760d574a29adb35fcc0f95cf0c,cr-xx",
+                "Wheely-3,6c38a6b5247341ec9086e821f3bffa96,pz-pl-xx",
+                "Puppy-Ride,439a64def8a14b99a811f59fc9935337,ac-ms-pl-xx",
+                "Gunblood,23a719c3577c4bd5902b17577bd97d24,ac-xx",
+                "Adam-and-Eve-3,4cf7fe53fde7406fadf9ad84a0b6ac59,pz-ad-xx",
+                "The-Spear-Stickman,a4f6574969174bbe924b0ac34842d72e,ac-xx",
+                "Superheroes-1010,3cc9df23b1ed4660b41621e1b4672dda,pz-xx",
+                "Snail-Bob-3,ba93f2766a0241c59f9e6ad14e63e1d3,pz-pl-xx",
+                "Apple-Shooter,f85e3e02194545208fa52da0c0992362,ac-xx",
+                "Extreme-Car-Parking,86c5ed6f926f4a6ba7f7519f7f3cec7f,pz-ms-xx",
+                "Bomb-It,bf359863a59f41c7b7e06ab637d009e4,mp-ac-xx",
+                "Whack-the-Tablet,10d9a54283f84325bbfb592d3446053e,ac-xx",
+                "Puzzle-Ball,fb820947f16b46e4889e73e48846f46b,pz-xx",
+                "Neon-Biker,a3bb020cbb834234afaffc5df7a3dd0c,ms-xx",
+                "Heroes-of-Myths,553949bb2a284dda91b17d118b4ccb17,st-xx",
+                "DeathCar.io,6ea87abc31684c18905b9533e7e37be0,ac-ms-mmo-xx",
+                "Clash-of-Vikings,7fb6eddc884e4a0380f40410134650a3,st-xx",
+                "Angry-Snakes,2bcdf70aa2fc41008779cde32ec4dc2e,ac-mmo-xx",
+                "Sheep-Farm,916c5ef7c12a43f897353bfe427fcde6,jb-xx",
+                "Death-Chase,548d37bb149e40d1a3b4e67f94703be3,ac-ms-xx",
+                "Viking-Workout,ac1805c2be7a431b84f547e641c88edd,ac-xx",
+                "Angry-Chicken,c66bfb0bb0d34b1da8e5efb3ce92e79f,ac-mmo-xx",
+                "Stickman-Archer-2,0456e9546b6b43ce892c11da41630d12,ac-xx",
+                "Neon-Pong,a4c67fbbc9bb4d70a26a85a91e5d12cc,sp-mp-xx",
+                "4-Colors-PGS,57cfda84d84441579d789dad1319faef,pz-mp-xx",
+                "Music-Line,b90559fb23a945eb9d5012c2d268da33,ac-xx",
+                "Jelly-Madness,ed40354e856f4aae8ccac8b98d70dec3,pz-xx",
+                "Jigsaw-Puzzle-Beauty-Views,79b66186b5874645a70127f340fb611b,pz-xx",
+                "HelloKids-Coloring-Time,34b65ebf985443deafb2bffb755e13dd,cr-xx",
+                "Riders-Feat,1da873e4a96f40779e6720661fffb41c,ac-ms-xx",
+                "Food-Grinder,6877b47487e14df1a7d94d8dc2f789e0,ac-pl-xx",
+                "Master-Checkers,e0d570df45e146899b986770297c0210,pz-st-xx",
+                "Battleship-War,77ad7230be4f458eae91bfcb54ebe6b0,pz-st-xx",
+                "Playing-with-Fire-2,50f47e5966b1442da8f24dfe020c5b31,ac-mp-xx",
+                "Big-Monsters-Racing,1e92ffb43a934754bfa1c2871502d099,ac-ms-xx",
+                "Truck-Traffic,b848199d14fa4155b6dda301eb8860c2,ac-ms-xx",
+                "Wheely-4,a258c3f728e94547aefed425dcffafca,pz-pl-xx",
+                "Pet-Sports,8d264713bcbe49458d3ecdad8eb2a11c,ac-sp-xx",
+                "PlayHeads-Soccer-All-World-Cup,3cf08908af2d44f59e98edd269763417,ac-sp-mp-xx",
+                "Vloggers-Life-Tycoon,e77929d457ef490ba31fb22d93997cf2,jb-xx",
+                "Road-Kill,de23bf702b70462f8d09770e7dd5599e,ac-ms-xx",
+                "Cat-Ninja,903ba9346b9d437e9c7e81d672cead44,ac-pl-xx",
+                "Olli-Mania,5720633fecd545a188471d3ce7a7bbeb,ac-xx",
+                "Run-Panda-Run,1e9f07be473e424d8c3603ce69918333,ac-pl-xx",
+                "Stick-Running,d65c531374d84b6ab19865af60b6b11f,ac-pl-xx",
+                "Rayifox,e76e5a2e08e54dc2b364a4ee837e6d73,ac-pl-xx",
+                "Pipe,88eca165ab114189a99ca98ae613e02d,pz-xx",
+                "WormZilla,3e4a21c283684cd18e9cc52ab4e37446,ac-xx",
+                "Tiny-Diggers,57e97ca0fe674bb6ad5ddc08c5da83f9,st-pl-xx",
+                "Snake-Blast-2,121effd7fe8a4652b3e6848d04891744,ac-mmo-xx",
+                "Park-a-Lot-3,265047b7c859491bbe2cc21b281e6c76,pz-ms-xx",
+                "Planet-Of-Kaz,415d4a2cc35b4690ab2200a49a7316cb,ac-pl-xx",
+                "Undead-Drive,5641e1f8019d48c1ac7a45b4fe588034,ac-ms-xx",
+                "Connect-4,d7b10d9e32844525a0bfa1fef7324895,pz-st-xx",
+                "Classic-Bowling,09b1ec6b7a4b4e41b6a86dc910be3e79,ac-sp-xx",
+                "Toastellia,19672eaf8119448687a36e95479a2f51,jb-xx",
+                "Lets-Go-Fishing-,b8ab16ed12bb41a9abc0819ce4429a0e,ac-sp-xx",
+                "Park-Your-Car,6745c37b40ce40cb83d74bda68c91ba5,pz-ms-xx",
+                "Medieval-Defense-Z,a90bd3f1fba643828ccfb0109b41a252,ac-xx",
+                "Super-Stacker-2,3de0c1fd03414f92b4324ebfe54fc562,pz-xx",
+                "Wheely-5,aa269c091dc14e9a8fc7d472f775d8ec,pz-pl-xx",
+                "Horse-Racing,8b6df6fe2ce14ff2b8a84fc2e6c87a13,sp-st-xx"
+            ];
+
+            function showGames(selected) {
+                var text = "";
+                var i;
+                var gameCounter = 0;
+                for (i = 0; i < games.length; i++) {
+                    var game = games[i].split(",");
+                    if (game[2].indexOf(selected) > -1) {
+                        gameCounter++;
+                        text += "<div class=gameIconContainer><a href=loader.html?" + games[i] + "><img title='" + game[0].replace(/-/g, " ") + "' class=gameIcon src=https://img.gamedistribution.com/" + game[1] + ".jpg></a></div>";
+                    }
+                }
+
+                results.innerHTML = gameCounter + " games!";
+                gamesBlock.innerHTML = text;
+            }
+
+            showGames("-");
+            
+</script>
+</body>
+</html>
