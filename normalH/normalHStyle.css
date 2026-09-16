@@ -1,0 +1,182 @@
+body{
+background: linear-gradient(mediumPurple, darkSlateBlue);
+text-align:center;font-family:arial,sans-serif;font-weight:bold;color:white
+}
+a:link{color:#ccccff;font-weight:bold;text-decoration:none}
+a:visited{color:#aaaaff;font-weight:bold;text-decoration:none}
+a:hover{color:yellow;font-weight:bold;text-decoration:none}
+a:active{color:yellow;font-weight:bold;text-decoration:none}
+}
+.levelsBox{
+margin-right:56px;display:inline
+}
+.newGame{
+box-shadow:20px 20px 10px #004a55;
+margin-bottom:20px
+}
+h1{text-align:center;
+font-family:"trebuchet ms",arial,sans-serif;font-size:80px;
+text-transform:uppercase;
+color: gold;
+text-shadow:9px 9px 9px rgba(0,0,0,0.5);
+animation:h1anim 5s forwards infinite;
+}
+@keyframes h1anim{
+from{filter:hue-rotate(0deg);}
+to{filter:hue-rotate(360deg);}
+}
+.sizeButton{
+padding:2px 10px;
+background:#ef9900;
+background-image:linear-gradient(#aa4400,#ef9900,#aa4400);
+border:3px outset #dad9d8;
+font-family:arial,sans-serif;
+font-size:1em;letter-spacing:0.05em;color:#fff;
+border-radius:15px;box-shadow:10px 10px 5px #004a55;
+margin-bottom:20px
+}
+.sizeButton:hover{
+background-image:linear-gradient(#cc6600,#ffbb00,#cc6600);
+}
+.gameGrid{
+border-style: none;
+width: 940px;
+height: 2300px;
+overflow: hidden
+}
+
+.promoBoys{
+border: 0px;
+border-bottom: 10px solid blue;
+border-top: 10px solid blue;
+width: 728px;
+height: 90px;
+overflow: hidden
+}
+
+.promoGirls{
+border: 0px;
+border-bottom: 10px solid magenta;
+border-top: 10px solid magenta;
+width: 728px;
+height: 90px;
+overflow: hidden
+}
+
+.privacyText{
+text-align: left
+} 
+
+.gameplayer{
+margin: auto;
+}
+
+.gameContainer{
+display: inline-block;
+margin: auto;
+width: 100px;
+height: 100px;
+}
+
+.htmlGameContainer{
+border-style: none;
+width: 720px;
+height: 480px;
+ overflow-x:hidden;
+  overflow-Y:hidden;
+}
+
+.button2{
+border:3px solid #003dcc; margin-bottom:10px;
+border-radius: 15px 5px 15px 5px;
+font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+background-image: linear-gradient(#0055cc, #3399ff, #0055cc);
+box-shadow: 10px 10px 5px #250045;
+}
+.button2:hover{
+border:3px solid #1155dd; 
+background-image: linear-gradient(#1177ee, #44aaff, #1177ee);
+}
+
+#backContainer {
+position:fixed;
+width:64px;
+height:64px;
+z-index:20;
+animation-name:slideInButton;
+animation-duration:5s;
+animation-fill-mode:forwards;
+cursor: pointer;
+box-shadow: 10px 10px 5px #888888;
+}
+@keyframes slideInButton {
+0%{left:-200px;top:5px}
+80%{left:-200px;top:5px}
+100%{left:5px;top:5px}
+}
+
+.thumb {
+position: relative;
+text-align: center;
+color: white;
+display: inline
+}
+
+.thumbText {
+position: absolute;
+bottom: 4px;
+left: 50%;
+transform: translate(-50%, -50%);
+text-shadow: 3px 3px 6px #000000;
+}
+
+#backContainer {
+position:fixed;
+width:64px;
+height:64px;
+z-index:20;
+animation-name:buttonSlide;
+animation-duration:5s;
+animation-fill-mode:forwards
+}
+@keyframes buttonSlide {
+0%{left:-200px;top:5px}
+80%{left:-200px;top:5px}
+100%{left:5px;top:5px}
+}
+
+canvas#canvas { width: 512px; height: 512px; margin-top: 20px}
+canvas{
+image-rendering: optimizeSpeed;
+image-rendering: -moz-crisp-edges;
+image-rendering: -webkit-optimize-contrast;
+image-rendering: optimize-contrast;
+image-rendering: pixelated;
+-ms-interpolation-mode: nearest-neighbor;
+border: 0px
+}
+
+.gameImg {
+display: inline-block;
+margin: 0.5vmin;
+border: 10px outset lawnGreen;
+border-radius: 20px;
+height: 196px;
+width: 272px;
+max-width: 20vw;
+max-height: 20vw;
+box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+.gameImg:hover {
+filter: brightness(150%);
+}
+
+.arcadeGamesLogo {
+width:80vw;
+}
+
+#gameFrame{
+width: 100vw;
+height: 100vh;
+}

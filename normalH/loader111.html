@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Play This!</title>
+<meta content="noindex,nofollow" name="robots">
+<base target="_top">
+
+<link href="normalHStyle.css" rel="stylesheet">
+
+<style>
+body {
+background: mediumPurple;
+margin:0;
+overflow: hidden;
+text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<a href="#" id="backContainer" onclick="window.history.back()"><img src="backButtonMin.svg" alt="Back" style="width:100px;height:100px;"></a>
+
+<script>
+
+        var gameString = unescape(window.location.search.substring(1));
+
+        var os = "Other";
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/Windows/i.test(userAgent)) {
+            os = "Windows";
+        }
+        if (/android/i.test(userAgent)) {
+            os = "Android";
+        }
+
+        document.write('<embed id=gameFrame src="' + gameString + '"></embed>')
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112184066-1');
+
+        gtag('event', ("Loaded : " + ("111: " + gameString)), {
+            'event_category': 'Game Play',
+            'event_label': (os)
+        });
+
+        setTimeout(function() {
+            if (!document.hidden) { //so long game tab still be focus...
+                gtag('event', ("3 Mins : " + ("111" + gameString)), {
+                    'event_category': 'Game Play',
+                    'event_label': (os)
+                });
+            }
+        }, 180000);
+</script>
+
+</body> 
+</html>
