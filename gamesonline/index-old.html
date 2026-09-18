@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+  <style>
+    body {
+      background: #003080;
+      background: linear-gradient(#003080, #0050b0, #003080);
+      text-align: center;
+      font-size: 1.5em;
+      font-family: arial, sans-serif;
+      font-weight: bold;
+      color: white;
+    }
+    #block {
+      margin-top: 5vh;
+      margin-bottom: 15vh;
+    }
+
+        .gameIconContainer {
+            display: inline-block;
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+
+        .gameIcon {
+            border-style: solid;
+            border-color: #00A2FF;
+            margin: 5px;
+            height: 100px;
+
+            border-radius: 20px;
+            box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .gameIcon:hover {
+            filter: brightness(150%);
+        }
+   h3 {
+     font-family: 'Righteous';
+     font-size: 135px;
+     color: dodgerblue;
+     text-shadow: 5px 5px navy;
+   }
+  </style>
+</head>
+<body>
+  <h3>- GamesOnline.com -</h3>
+  <p id="block"></p>
+  <script>
+            //ac-Action ad-adventure cr-Craft du-Dressup jb-Jobs ms-motorsport mmo-MMO mp-Multiplayer pl-Platform pz-Puzzle rt-Retro sp-Sport st-Strategy
+
+        var flashGames = [
+
+            "FL4,fancypantsadventure,720,480",
+            "FL4,deliverydilemma,600,400",
+            "FL4,hollyhobbiedollhouse,600,400",
+            "FL4,woobies,800,600",
+            "FL4,highwayjustice,600,500",
+            "FL4,savagepursuit,600,400",
+            "FL4,starscramble,600,400",
+            "FL4,supermarioflash,320,240",
+            "FL4,dutchmansdash,450,300", //actually 600x300
+            "FL4,pollypartypickup,570,440",
+            "FL4,booorboom,600,400",
+            "FL4,mynewroom,660,480",
+            "FL4,journeyofthemouse,640,480",
+            "FL4,royalthumble,550,400",
+            //"FL4,empiresofarkeia,720,480", //AS3
+            "FL4,warpshot,750,500",
+            "FL4,caveman,550,400",
+            "FL4,ben10ninjaspirit,550,360", //actually 640x360
+            "FL4,portal,650,450", //actually 800x450
+            "FL4,simtaxi,640,480",
+            "FL4,epicbattlefantasy,700,400",
+            "FL4,puzzlefreak,800,600",
+            "FL4,tribotfighter,600,450", //actually 800x450
+            "FL4,obamainthedark,800,500",
+            "FL4,barbieburgers,640,480",
+            "FL4,jinxandminxtowerescape,750,500",
+            "FL4,sheepfarm,730,530",
+            "FL4,squareheroorigins,640,480",
+            "FL4,aylacookthanksgivingmenu,600,400",
+            "FL4,intrusion,720,540", //gfx bugs
+            "FL4,heliattack3,448,320",
+            "FL4,avatararena,450,300", //600x300
+            "FL4,personalshopper,600,450",
+            "FL4,rockyrider,640,480",
+
+            /*
+            "FL4,game,640,480",
+            "FL4,game,640,480",
+            */
+
+        ];
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        shuffleArray(flashGames);
+
+        //var sitemapText = "";
+    
+            var numGames = flashGames.length;
+
+            console.log(numGames);
+
+            if (numGames > 30) { //limit games shown to a maxiumum
+                numGames = 30;
+            }
+
+            console.log(flashGames);
+
+            var gameDev;
+            var gameURL;
+            var gameThumb;
+            var gameName;
+            var passVar;
+            var text = "";
+            var i;
+            for (i = 0; i < numGames; i++) {
+                var game = flashGames[i].split(",");
+
+                console.log("SPLIT GAME");
+                console.log(game);
+
+
+                if (true) { //game is in selection
+
+                    console.log("GAME SELECTED");
+
+                    // generic display, with hosted thumbs
+                    if (true) {
+
+                        gameIdent = game[0];
+                        gameName = game[1];
+                        sizeX = game[2];
+                        sizeY = game[3];
+
+                        console.log("Game Ident: " + gameIdent);
+                        console.log("Game Name: " + gameName);
+                        console.log("Game Size X: " + sizeX);
+                        console.log("Game Size Y: " + sizeY);
+
+                        passVar = gameIdent + "," + gameName + "," + sizeX + "," + sizeY;
+
+                        passVar = escape(passVar);
+
+                        console.log(passVar);
+
+                        text += "<div class=gameIconContainer><a href=https://www.yibba.com/play.html?" + passVar + "><img class=gameIcon src=https://www.yibba.com/thumbs/" + gameName + ".jpg></a></div>";
+
+                    }
+
+                    //for sitemap
+                    //sitemapText += "<url><loc>https://www.xxx.com/loader.html?" + game[0] + "," + game[1] + "</loc></url>\n";
+
+                } else {
+                    console.log("GAME NOT SELECTED");
+
+                }
+            }
+
+            block.innerHTML = text;
+  </script>
+</body>
+</html>
