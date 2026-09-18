@@ -311,6 +311,25 @@
             color: palegoldenrod;
         }
 
+        #privacyButton {
+            position: absolute;
+            font-weight: bold;
+            border-bottom-left-radius: 10px;
+            z-index: 20;
+            top: 0;
+            right: -12vmin;
+            padding: 1vmin;
+            cursor: pointer;
+            background: #0066AA;
+            animation: privacyButtonSlideIn 2s ease-out forwards;
+        }
+        
+        @keyframes privacyButtonSlideIn {
+            to {
+                right: 0;
+            } 
+        }
+        
     </style>
 
 </head>
@@ -342,7 +361,8 @@
 
     <div id="clickArea"></div>
 
-
+    <a id="privacyButton" href="onlinegame-privacy.html">Privacy And Cookie Consent Policy</a>
+    
     <script>
 
         clickArea.onclick = function() {
