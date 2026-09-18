@@ -114,4 +114,24 @@ margin-top: 3vmin;
     .gameIcon:hover {
         filter: brightness(150%);
     }
-
+        #oldGameButton {
+            position: absolute;
+            font-weight: bold;
+            border-top-right-radius: 10px;
+            z-index: 20;
+            left: 0;
+            bottom: -10vmin;
+            padding: 1vmin;
+            font-size: 3vmin;
+            display: none;
+            cursor: pointer;
+            background-color: #003080;
+            background-image: linear-gradient(to right, #003080 0%, #0050b0 10%, #0050b0 90%, #003080 100%);
+            animation: oldGameButtonSlideIn 2s ease-out forwards;
+        }
+        
+        @keyframes oldGameButtonSlideIn {
+            to {
+                bottom: 0;
+            } 
+        }
