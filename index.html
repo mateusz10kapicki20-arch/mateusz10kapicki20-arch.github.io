@@ -1,4 +1,48 @@
 <!DOCTYPE html>
+<html>
+<head>
+
+    <script async src="assets/scripts/consent.js"></script>
+
+    <meta charset="utf-8" />
+    <meta content="width=device-width,initial-scale=1" name=viewport>
+  
+     <style>
+        body {
+            margin: 0;
+            background:
+    linear-gradient(45deg, hsla(352, 96%, 45%, 1) 0%, hsla(352, 96%, 45%, 0) 70%),
+    linear-gradient(135deg, hsla(253, 95%, 42%, 1) 10%, hsla(253, 95%, 42%, 0) 80%),
+    linear-gradient(225deg, hsla(179, 91%, 45%, 1) 10%, hsla(179, 91%, 45%, 0) 80%),
+    linear-gradient(315deg, hsla(119, 96%, 49%, 1) 100%, hsla(119, 96%, 49%, 0) 70%);
+            text-align: center;
+            font-size: 1.5em;
+            font-family: arial, helvetica, sans-serif;
+            color: white;
+        }
+
+        a {
+            color: skyblue;
+            text-decoration: none;
+        }
+       
+        #welcome {
+            margin-top: 2vh;
+            margin-bottom: 15vh;
+        }
+
+        .changeConsent {
+            cursor: pointer;
+        }
+       
+     </style>
+</head>
+<body>
 <title>Mateusz Kapicki</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
+<div id="welcome">
 <h1>Hello World!</h1>
+</div>
+<a class="changeConsent" onclick="googlefc.callbackQueue.push(googlefc.showRevocationMessage)">Manage Or Revoke Cookie Consents</a>
+</body>
+</html>
