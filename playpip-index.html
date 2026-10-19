@@ -80,6 +80,7 @@ var gamesBlockWidth = Math.floor($(window).width()/square)*square;
 var padding = Math.floor(((winWidth-gamesBlockWidth)/2)-11);
 $("#gamesBlock").css("padding", padding + "px");
 $("#gamesBlockSecret").css("padding", padding + "px");
+$("#moreGamesBlock").css("padding", padding + "px");
 }); 
 
 //adjust logo size based on screen width DISABLED FOR NOW
@@ -250,9 +251,8 @@ $("#secretButton").click(function(){
 <li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
 </ul></div>
 
-
+<div id="moreGamesBlock"></div>
 <div id="gamesBlock"><ul class="thumbs">
-<li class="game"><a href="menu/moregames-x.html?z=8blockA" target="_self"><span class="game"><img src="menu/more-games.svg" alt="More Games - Playpip"><span class="name">More Games - Playpip</span></span></a></li>
 <li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
 <li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
 <li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
@@ -450,6 +450,10 @@ $.featherlight("#mylightbox");
 <script>
 //remove fade sheet
 $("#fadeSheet").delay(500).fadeOut(500);
+
+var moreGames = [["0"],["1"],["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"]];
+var selectedGame = Math.floor(Math.random() * moreGames.length);
+document.getElementById("moreGamesBlock").innerHTML = "<ul class=thumbs><li class=game><a href='menu/moregames-x.html?z=" + moreGames[selectedGame] + "blockA' target=_self><span class=game><img src=menu/more-games.svg alt=More Games - Playpip><span class=name>More Games - Playpip</span></span></a></li><ul>";
 </script>
 
 </html>
