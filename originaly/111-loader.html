@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+
+<title>Play This!</title>
+<meta content="noindex,nofollow" name="robots">
+<base target="_top">
+
+<link href="originalYStyle.css" rel="stylesheet">
+
+<style>
+body {
+margin:0;
+overflow: hidden;
+text-align: center;
+}
+
+</style>
+
+</head>
+<body>
+ 
+<a href="#" id="backContainer" onclick="window.history.back()"><img src="backButtonMin.svg" alt="Back" style="width:100px;height:100px;"></a>
+
+    <script>
+        
+        var blockId = 111;
+        
+        var gameString = unescape(window.location.search.substring(1));
+        
+        //get user os    
+        var os = "Other";
+        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        if (/Windows/i.test(userAgent)) {
+            os = "Windows";
+        }
+        if (/android/i.test(userAgent)) {
+            os = "Android";
+        }
+        if (/iPad/.test(userAgent) && !window.MSStream) {
+            os = "iPad";
+        }
+        if (/iPhone|iPod/.test(userAgent) && !window.MSStream) {
+            os = "iPhone";
+        }
+
+        //os = "Android";
+        
+        var device = "!desktop"; // could use...  typeof window.orientation == "undefined"
+        if (os == "Android" || os == "iPad" || os == "iPhone") {
+            device = "!touch";
+        } 
+
+        document.write('<embed id=gameFrame src="https://play.gamepix.com/'+ gameString +'/embed?api=2&rgx=1&gpxref=direct"></embed>')
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-112184066-1');
+
+        gtag('event', ("Loaded : " + (blockId + ": " + gameString)), {
+            'event_category': 'Game Play',
+            'event_label': (device)
+        });
+        //console.log("loaded!");
+
+        setTimeout(function() {
+            if (!document.hidden) { //so long as tab is still in focus...
+                gtag('event', ("3 Mins : " + (blockId + ": " + gameString)), {
+                    'event_category': 'Game Play',
+                    'event_label': (device)
+                });
+                //console.log("5mins!");
+            }
+        }, 180000);
+        
+    </script>
+
+</body>
