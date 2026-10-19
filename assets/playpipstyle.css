@@ -1,0 +1,257 @@
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+
+#content {position:relative;margin: 0 auto;list-style:none;}
+
+body {	background: #2255cc; font-family:arial,helvetica,sans-serif;font-size:medium;font-weight:bold;text-align:center;color:#ffffff;
+
+
+/* background: linear-gradient(#2255cc, #4477ee, #2255cc); */
+
+/*
+ background:
+    linear-gradient(45deg, hsla(352, 96%, 45%, 1) 0%, hsla(352, 96%, 45%, 0) 70%),
+    linear-gradient(135deg, hsla(253, 95%, 42%, 1) 10%, hsla(253, 95%, 42%, 0) 80%),
+    linear-gradient(225deg, hsla(179, 91%, 45%, 1) 10%, hsla(179, 91%, 45%, 0) 80%),
+    linear-gradient(315deg, hsla(119, 96%, 49%, 1) 100%, hsla(119, 96%, 49%, 0) 70%);
+*/
+
+background: linear-gradient(#2255cc, #2255cc, #2255cc, #6600cc, #dd0000);
+
+
+
+}
+
+
+ }
+
+/* LINK COLOURS REMOVED FOR NOW
+a{color:#BB00DD;text-decoration:none}a:visited{color:#BB00DD;}a:active{color:#BB00DD;}a:hover{color:#DD00EE;}
+*/
+
+
+h1 {
+    font-size: 20px;
+}
+
+h2 {
+    font-size:340px;
+}
+
+p {
+    font-size: 14px;
+}
+
+.hidden{
+	display: none;
+}
+
+.walkthroughVideo iframe { display: none }
+
+.modalTitle {
+font-size: 20px;
+color: grey;
+}
+
+.modalText {
+font-size: 14px;
+color: black;
+}
+
+.secretButton {
+	top: 0px; right: 0px; z-index: 90;
+	position: absolute;
+}
+
+.flashSheet {
+	top: 0px; right: 0px; z-index: 200;
+	position: absolute;
+	display: none;
+}
+
+.bottomLinks {
+	text-align: center;
+}
+
+.bottomSpacer {
+	padding: 100px;
+}
+
+/* NOT USED
+.pop-up {
+	text-align: center;
+	border: 3px solid green;
+	color:#000000;
+}
+*/
+
+
+.logo {
+	top: -550px; right: 100px; position: fixed; z-index: 30;
+	display: none;
+}
+
+
+.logoPlayPip {
+	top: -550px; right: 150px; position: fixed; z-index: 40;
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+#gamesBlockSecret {
+position: relative;
+float: left;
+display: none;
+}
+
+#gamesBlock {
+position: relative;
+float: left;
+}
+
+
+
+.thumbs { list-style-type: none;}
+.thumbs li { display: block; float: left; margin: 10px 0 0 10px; }
+.thumbs li.game a { position: relative; display: block; background: #2211CC url("gamebg.png"); width: 150px; height: 150px; padding: 0px; font-size: 12px; font-weight: bold; text-align: center; border-radius: 3px; border-top: 3px solid rgba(255, 255, 255, 0.3); border-bottom: 3px solid rgba(0, 0, 0, 0.3); border-left: 3px solid rgba(255, 255, 255, 0.3); border-right: 3px solid rgba(0, 0, 0, 0.3); box-shadow: 20px 20px 30px -1px rgba(0,0,0,0.65);}
+.thumbs li.game a:hover {color: #000; text-decoration: none; background-color: #4422EE;}
+.thumbs li.game a span.game { position: relative; display: block; width: 100%; height: 100%; overflow: hidden; }
+.thumbs li.game a span.game img {position: relative; display: block; width: 100%; height: 100%; border-radius: 3px; transition: transform 0.3s; transition-timing-function: ease-in-out;}
+.thumbs li.game a span.game img:hover { transform: scale(1.2); transition-timing-function: ease-in-out;  }
+
+.thumbs li.game a span.game span.name { position: absolute; top: 100%; display: block; background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNui8sowAAAAWdEVYdENyZWF0aW9uIFRpbWUAMDIvMTQvMTO7UihVAAAADUlEQVQImWNgYGBYBgAAqwCnJicwSwAAAABJRU5ErkJggg=='); width: 150px; padding: 5px 0; overflow: hidden; font-size: 16px; color: #ffffff; text-shadow: 3px 3px black; border-bottom-left-radius: 1px; border-bottom-right-radius: 3px;}
+
+.thumbs li.blank {width: 150px; height: 150px; padding: 3px;}
+
+
+
+
+.footerText{
+  font-size: 10px;
+  color: #fff;
+  font-family: helvetica, arial;
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  left: 0;
+}
+
+
+
+
+
+/* BUTTONS */
+
+
+.button {
+	background-color: #4CAF50; /* Green */
+	border: 3px solid green;
+	color: white;
+	padding: 15px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition-duration: 1s;
+	cursor: pointer;
+	box-shadow: 20px 20px 30px -1px rgba(0,0,0,0.65)
+}
+
+
+/* red */
+.button1 {
+	background-color: #d50000; 
+	color: #800000; 
+	border: 3px solid #aa0000;
+	border-width: 3px 0px 3px 3px;
+	border-radius: 30px 0px 0px 10px
+}
+
+.button1:hover {
+	background-color: #ff0000;
+	border-color: #d50000;
+	color: white;
+}
+
+
+/* orange */
+.button2 {
+	background-color: #d58a00; 
+	color: #805300; 
+	border: 3px solid #aa6f00;
+	border-width: 3px 0px 3px 0px
+}
+
+.button2:hover {
+	background-color: #fea500;
+	border-color: #d58a00;
+	color: white;
+}
+
+
+/* yellow */
+.button3 {
+	background-color: #eade00; 
+	color: #958d00; 
+	border: 3px solid #bfb600;
+	border-width: 3px 0px 3px 0px
+}
+
+.button3:hover {
+	background-color: #ffff00;
+	border-color: #eade00;
+	color: #bfb600;
+}
+
+
+/* green */
+.button4 {
+	background-color: #00d560;
+	color: #008039;
+	border: 3px solid #008039;
+	border-width: 3px 0px 3px 0px
+}
+
+.button4:hover {
+	background-color: #00ff73;
+	border-color: #00d560;
+	color: white;
+}
+
+
+/* blue */
+.button5 {
+	background-color: #019ad3;
+	color: #015c7e;
+	border: 3px solid #017ba9;
+	border-width: 3px 0px 3px 0px
+}
+
+.button5:hover {
+	background-color: #01b9fe;
+	border-color: #019ad3;
+	color: white;
+}
+
+/* purple */
+.button6 {
+	background-color: #6d32a3;
+	color: #421e62;
+	border: 3px solid #572882;
+	border-width: 3px 3px 3px 0px;
+	border-radius: 0px 10px 30px 0px
+}
+
+.button6:hover {
+	background-color: #833cc4;
+	border-color: #6d32a3;
+	color: white;
+}
