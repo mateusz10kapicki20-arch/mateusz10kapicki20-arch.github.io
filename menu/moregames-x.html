@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta content="noindex,nofollow" name="robots">
+<title>Playpip.com : More Games</title>
+<style>body{margin:0;background-color:#0033AA;color:#68a;font-family:arial,helvetica,sans-serif;font-size:medium;text-align:left}
+a{text-decoration:none;color:#68a}a:visited{color:#68a}a:active{color:#68a}a:hover{color:#acd}
+
+.frame {
+width: 95vw;
+height: 2000vh;
+}
+
+.largeButton {
+width: 100px;
+height: 100px;
+cursor: pointer;
+transition: filter 1s
+}
+
+.largeButton:hover {
+filter: contrast(3);
+}
+
+#backContainer {
+position:fixed;
+z-index:20;
+animation-name:backButtonSlide;
+animation-duration:3s;
+animation-fill-mode:forwards
+}
+@keyframes backButtonSlide {
+0%{left:-200px;top:5px}
+80%{left:-200px;top:5px}
+100%{left:5px;top:5px}
+}
+
+#mouseInteract {
+transition: filter 1s
+}
+
+#mouseInteract:hover {
+filter: contrast(3);
+}
+
+</style>
+</head>
+<body>
+ 
+
+<form name="hf" style="margin:0px;"><input type="hidden" name="gd"></form>
+
+<div id="backContainer"><img alt="Back" class="largeButton" src="greenBackButton.svg" onclick="window.open(&quot;../playpip-index.html&quot;, &quot;_top&quot;)"></div>
+
+<script>
+var locate=window.location;
+document.hf.gd.value=locate;
+var tx=document.hf.gd.value;
+var tr=tx.substring(tx.indexOf("=")+1,tx.length);
+var block=tr.slice(1,tr.length);
+var ap=tr.slice(0,1);
+//alert(block);
+//alert(ap);
+
+document.write('<iframe class=frame frameborder="0" src=../originaly/'+block+ap+'.html></iframe>');
+
+</script>
+
+</body>
+</html>
