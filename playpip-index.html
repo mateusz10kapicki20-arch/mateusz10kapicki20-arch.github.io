@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta content="text/html; charset=utf-8" http-equiv="Content-type">
+<meta content="Games free online games etc." name="description">
+<meta content="games, free games, flash games" name="keywords">
+<meta content="index, follow" name="robots">
+<title>PlayPip &#8211; Free Online Games!</title>
+<link href="assets/playpipstyle.css" rel="stylesheet">
+<link href="assets/featherlight.min.css" rel="stylesheet">
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/featherlight.min.js"></script>
+<script src="assets/playpipscript.js"></script>
+<script src="assets/jquery-ui.min.js"></script>
+
+
+<!-- should remain in this file, not external css -->
+<style>.fadeSheet{top:0;left:0;position:fixed;z-index:100}</style>
+
+</head>
+
+
+
+
+
+
+ <div class="logo" id="logo">
+<object id="logoInner" type="image/svg+xml" data="assets/logo.svg"></object>
+</div>
+
+<!-- place floating logo EXTRA on the screen -->
+<div class="logoPlayPip" id="logoPlayPip">
+<object id="logoPlayPipInner" type="image/svg+xml" data="assets/logoPlayPip.svg"></object>
+</div>
+
+<!-- place secret button on screen -->
+<div class="secretButton" id="secretButton">
+<svg width="100" height="20">
+  <rect x="0" y="0" width="100" height="20" style="fill:red;fill-opacity:0.2;">
+</svg>
+</div>
+
+
+<!-- place flashSheet (4k) on screen -->
+<div class="flashSheet" id="flashSheet">
+<svg height="2048" width="4096">
+  <rect fill="white" width="100%" height="100%"/>
+</svg>
+</div>
+
+
+<script>  
+
+
+
+
+//if page is loaded within a frame, move it to the top
+if (top.location !== self.location) { 
+    top.location=self.location; 
+}
+
+//if user resizes page, reload, from cache
+$(window).bind('resize', function(e)
+{
+  if (window.RT) clearTimeout(window.RT);
+  window.RT = setTimeout(function()
+  {
+    this.location.reload(false);
+  }, 100);
+});
+
+
+//adjust game thumbnails based on screen width
+$(function() {
+var square=165;
+var winWidth = Math.floor($(window).width());
+var gamesBlockWidth = Math.floor($(window).width()/square)*square;
+//var padding = Math.floor(($(window).width()-Math.floor($(window).width()/square)*square)/2);
+var padding = Math.floor(((winWidth-gamesBlockWidth)/2)-11);
+$("#gamesBlock").css("padding", padding + "px");
+$("#gamesBlockSecret").css("padding", padding + "px");
+}); 
+
+//adjust logo size based on screen width DISABLED FOR NOW
+//var viewportWidth = document.documentElement.clientWidth;
+//document.getElementById("logoInner").style.width = 100+(viewportWidth/5) +"px";
+//document.getElementById("logoPlayPipInner").style.width = 100+(viewportWidth/5) +"px";
+
+
+//unhide logo
+document.onreadystatechange = function(){
+     if(document.readyState === 'complete'){
+var scrollTop = window.pageYOffset;
+if(scrollTop < 2048){ //allows for non-showing of logo on entry, if needed
+document.getElementById("logo").style.display = 'block';
+document.getElementById("logoPlayPip").style.display = 'block';
+}
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//when page loads, drop in logo with random selection of effects
+$(document).ready(function(){
+var rn=Math.random();
+//rn = 0.6;
+var logoY = document.documentElement.clientHeight-280;
+var logoPlayPipY = logoY+130;
+
+if(rn<=0.25){$("#logo").animate({top: logoY + 'px'}, 1500, 'easeOutBounce');$("#logoPlayPip").animate({top: logoPlayPipY + 'px'}, 1900, 'easeOutBounce');};
+if(rn>0.25&&rn<=0.5){$("#logo").animate({top: logoY + 'px'}, 1500, 'easeOutElastic');$("#logoPlayPip").animate({top: logoPlayPipY + 'px'}, 1900, 'easeOutElastic');};
+if(rn>0.5&&rn<=0.75){$("#logo").animate({top: logoY + 'px'}, 1500, 'easeOutElastic');$("#logoPlayPip").animate({top: logoPlayPipY + 'px'}, 1500, 'easeOutBounce');};
+if(rn>0.75){$("#logo").animate({top: logoY + 'px'}, 1500, 'easeOutBounce');$("#logoPlayPip").animate({top: logoPlayPipY + 'px'}, 1900, 'easeOutElastic');};
+});
+
+var mouseCounter=0;
+
+//remove logo when mouse hovers in-out over it a few times
+$("#logo").hover(function(){
+	mouseCounter++;
+	if(mouseCounter==10){
+		var rn=Math.random();
+		rn=0.9;
+		if(rn<=0.2){$("#logo").slideUp(1000);$("#logoPlayPip").slideUp(500);};
+		if(rn>0.2&&rn<=0.4){$("#logo").animate({right:'-800px'},2000);$("#logoPlayPip").delay(300).animate({right:'-800px'},2000);};
+		if(rn>0.4&&rn<=0.6){$("#logo").fadeOut(1500);$("#logoPlayPip").fadeOut(1800);};
+		if(rn>0.6&&rn<=0.8){$("#logo").delay(300).animate({top:'1200px'},1000);$("#logoPlayPip").animate({top:'1200px'},1000);};
+		if(rn>0.8){$(this).animate({top:'-550px'},2000);$("#logoPlayPip").delay(200).animate({top:'-550px'},2000);};
+	}
+});
+
+/*
+$("button").click(function(){
+    var div = $("div");
+    div.animate({height: '300px', opacity: '0.4'}, "slow");
+    div.animate({width: '300px', opacity: '0.8'}, "slow");
+    div.animate({height: '100px', opacity: '0.4'}, "slow");
+    div.animate({width: '100px', opacity: '0.8'}, "slow");
+});  
+*/
+
+
+//when secret button clicked, show secret games
+$("#secretButton").click(function(){
+	var winHeight = Math.floor($(window).height());
+	$("#gamesBlock").animate({top: winHeight + 'px'}, 2500, 'easeOutBounce', function(){
+		$("#gamesBlockSecret").css("display", "block");
+		$("#flashSheet").css("display", "block");
+		$("#flashSheet").fadeOut(1800);
+		
+		//$("#gamesBlockSecret").animate({top: '0px'}, 3000);
+	});
+});
+
+
+
+//TEST ONLY when page loads, drop in logo USED CSS ANIMATE
+//$(document).ready(function(){
+//   $("#logo").addClass('dropIn');
+//});
+
+//TEST ONLY makes logo bigger
+//function myFunction() {
+//document.getElementById("logoInner").style.height = "1000px";
+//alert(true);
+//}
+
+//TEST ONLY scroll to a particular place
+//$(document).ready(function() {
+//    $(document).scrollTop(1000);
+//});
+
+
+//TEST ONLY does not work when used with with 'drop in'
+//when mouse hovers over logo, animate
+//$('#logo').hover(function(){
+//    $(this).addClass('animate');
+//});
+
+//TEST ONLY hide logo
+//$(document).ready(function(){
+//    $(".logo").hover(function(){
+//        $(this).hide();
+//    });
+//});
+
+//TEST ONLY - can animate using relative values...
+//    $("div").animate({
+//        left: '250px',
+//        height: '+=150px',
+//        width: '+=150px'
+//    });
+
+
+</script>
+
+
+
+<!-- place fadesheet (4k) on screen -->
+<div class="fadeSheet" id="fadeSheet">
+<svg height="2048" width="4096">
+  <rect fill="black" width="100%" height="100%"/>
+</svg>
+</div>
+
+<div id="gamesBlockSecret"><ul class="thumbs">
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+</ul></div>
+
+
+<div id="gamesBlock"><ul class="thumbs">
+<li class="game"><a href="menu/moregames-x.html?z=8blockA" target="_self"><span class="game"><img src="menu/more-games.svg" alt="More Games - Playpip"><span class="name">More Games - Playpip</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank">
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="blank"></li>
+<li class="game"><a><span class="game"><img src="games/000-pics/000-placeholder.jpg" alt="Game Coming Soon!"><span class="name">Coming Soon!</span></span></a></li>
+
+</ul></div>
+
+<div class="bottomSpacer">&nbsp;</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bottomLinks">
+<a href="#fl-cookies" class="button button1" data-featherlight>&nbsp;Cookies&nbsp;</a><a href="#fl-privacy" class="button button2" data-featherlight>&nbsp;Privacy&nbsp;</a><a href="#fl-help" class="button button3" data-featherlight>&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;</a><a href="#fl-walkthroughs" class="button button4" data-featherlight>Walkthroughs</a><a href="#fl-moregames" class="button button5" data-featherlight>More Games</a><a href="#fl-copyright" class="button button6" data-featherlight>Copyright</a> 
+</div>
+
+<div class="bottomSpacer">&nbsp;</div>
+
+<div class="hidden" id="fl-cookies"><div class="modalTitle">Cookies</div><div class="modalText"><br>This site uses cookies to track user behaviour and to store player progression in games etc. Cookies may also be used by advertising networks to record which websites a user has visited, and to therefore serve more relevant ads. You can at any time delete the cookies held by your browser, or change what is kept. Just check your browser's settings. You can also choose to opt-out of network advertising networks' use of cookies. Note: If you are not happy with the above use of cookies, please do not use this website.</div><br><a href="https://optout.networkadvertising.org/" target="_blank">NAI Consumer Opt Out</a></div>
+<div class="hidden" id="fl-privacy"><div class="modalTitle">Privacy</div><div class="modalText"><br>The Privacy of our users is very important to us. We do not collect any personal or personally-identifiable data, and so we will not share any such data with third parties. Related to the use of cookies, you may at any time inform the various network advertising networks about your preferences. Click below.</div><br><a href="https://optout.networkadvertising.org/" target="_blank">NAI Consumer Opt Out</a></div>
+<div class="hidden" id="fl-help"><div class="modalTitle">Help</div><div class="modalText"><br>Rather than using Flash, the games at frivextra.com use HTML5 and other web technologies. These technologies are continually developing, and the games are getting better and better. We recommend Google Chrome for the best playing experience. If you find the games run slowly, please try closing other applications and any unused tabs. Happy gaming!</div></div>
+<div class="hidden" id="fl-walkthroughs"><div class="modalTitle">Walkthroughs</div><div class="modalText"><br>Watch this space! Walkthroughs for some of the more popular (and tricky!) games will be posted here soon.</div></div>
+<div class="hidden" id="fl-moregames"><div class="modalTitle">More Games</div><div class="modalText"><br>If you have a browser that can run Flash, please try the two sites below. Have fun!</div><br><a href="https://www.fabo.com/" target="_blank">Fabo</a>&nbsp;<a href="https://www.femo.com/" target="_blank">Femo</a></div>
+<div class="hidden" id="fl-copyright"><div class="modalTitle">Copyright &amp; Usage</div><div class="modalText"><br>Players: Please feel free to play the games here, to share them with their friends, and even make "Walkthrough" and "Let's Play" videos for upload to YouTube and social networks etc. The games are offered for all to play for free, and you will never be charged, or nagged for any of those annoying "in-app purchases"!<br><br>Commercial entities: The design of this website, trade dress, the Friv logotype, related indicia, and other intellectual property in use here is protected by copyright. No unauthorised use is permitted. In relation to the games found on this website, copyright is held by their respective author(s). You may not use any of the resources found here for commercial purposes without express permission.<br><br>Copyright &copy; 2006-2026. PlayPip is a Registered Trademark. All Rights Reserved.</div>
+
+
+
+
+
+
+
+
+
+
+<!-- does not work for links ...can delete after validation of above
+<a href="#" class="button button2" data-featherlight="<div class=modalTitle>Privacy</div><div class=modalText><br>The Privacy of our users is very important to us. We will not share your data with third parties.</div>">&nbsp;Privacy&nbsp;
+</a><a href="#" class="button button3" data-featherlight="<div class=modalTitle>Help</div><div class=modalText><br>Please ensure that you are using a modern browser and have the latest version of Adobe Flash installed.</div>">&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;
+</a><a href="#" class="button button4" data-featherlight="<div class=modalTitle>Walkthroughs</div><div class=modalText><br>Some games feature walkthroughs, and videos will be posted here as they become available.</div>">Walkthroughs
+</a><a href="#" class="button button5" data-featherlight="<div class=modalTitle>More Games</div><div class=modalText><br>Sometimes we will post links here to recommended games. Check back often!</div>">More Games
+</a><a href="#" class="button button6" data-featherlight="<div class=modalTitle>Copyright And Tradermark Notice</div><div class=modalText><br>The design of this website, trade dress, the Friv logotype, related indicia, and other intellectual property seen here and elsewhere is protected by Copyright. No unauthorised use is permitted. In relation to the games found on this website, Copyright is held by their respected author(s).<br><br>Copyright &copy; 2006-2016. Friv is a Registered Trademark. All Rights Reserved.</div>">Copyright</a>
+-->
+
+<!--
+<div class=modalTitle>Cookies</div><div class=modalText><br>This site uses cookies to track user behaviour and to store player progression in games. If you are not happy with this use of cookies, please do not use this site. Thank you.</div>">&nbsp;Cookies&nbsp;
+-->
+
+<!-- load a video directly
+<a id='open_lightbox' data-featherlight='.lightbox_content' href='#'>open lightbox</a>
+<div class='lightbox_content'>
+   <video controls id=v1 class=video width=700><source src=http://www.frivextra.com/walkthroughs/camerachaos-1to18-friv-WEB.mp4 type=video/mp4></video>
+</div>
+-->
+
+<!-- iframe video
+<a id='open_lightbox' data-featherlight='.lightbox_content' href='#'>open lightbox</a>
+<div class='lightbox_content'>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/g7fbe-oV-X0?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+-->
+
+<!-- you can call a 'hidden' modal thus:
+<a href="#" data-featherlight="#mylightbox">Open element in lightbox</a>
+<div id="mylightbox" class="hidden">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa eum ab vitae similique fugiat quia, nemo, odio corporis enim consequuntur praesentium ut officiis, dolore asperiores. Tempora sequi fugit officia modi fuga eveniet veritatis velit iste repellat, reprehenderit, quos ipsam asperiores!</div>
+-->
+
+<!-- you can manually call an lightbox to open
+<script>
+$.featherlight("#mylightbox");
+</script>
+-->
+
+<!-- if needed, you can open an iframe...
+<a class="btn btn-default" href="#" data-featherlight="#fl3">iFrame</a>
+<div class="walkthroughVideo"><iframe class="lightbox" src="http://www.frivextra.com/walkthroughs/camerachaos.html" width="800" height="800" id="fl3" style="border:none;" allowfullscreen></iframe></div>
+-->
+
+<script>
+//remove fade sheet
+$("#fadeSheet").delay(500).fadeOut(500);
+</script>
+
+</html>
