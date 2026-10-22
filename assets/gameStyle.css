@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Black+Ops+One');
+
+body{
+background:#0011AA;
+text-align:center;font-family:arial,sans-serif;font-weight:bold;color:white
+}
+a:link{color:#ccccff;font-weight:bold;text-decoration:none}
+a:visited{color:#aaaaff;font-weight:bold;text-decoration:none}
+a:hover{color:yellow;font-weight:bold;text-decoration:none}
+a:active{color:yellow;font-weight:bold;text-decoration:none}
+
+h1{	
+overflow:hidden;white-space:nowrap;max-width:100%;user-select:none;
+margin-top:-2vw;margin-bottom:-3vw;
+color: #fff; text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 15px #0000bb, 0 0 20px #0000bb, 0 0 30px #0000bb, 0 0 40px #0000bb, 0 0 50px #0000bb;
+letter-spacing: 5px; font-family: 'Black Ops One', cursive; font-size:5.6vw;}
+
+h2{
+overflow:hidden;white-space:nowrap;max-width:100%;user-select:none;
+margin-top:-7.5vw; margin-bottom:-2vw;
+color: #fff; text-shadow: 0 0 5px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 15px #0000bb, 0 0 20px #0000bb, 0 0 30px #0000bb, 0 0 40px #0000bb, 0 0 50px #0000bb;
+letter-spacing: 5px; font-family: 'Black Ops One', cursive; font-size:4vw;}
+
+h3{
+overflow:hidden;white-space:nowrap;max-width:100%;user-select:none;
+margin-top:0px; margin-bottom:-20px;
+color: #ffffaa; text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0000bb, 0 0 20px #0000bb, 0 0 25px #0000bb;
+letter-spacing: 10px; font-family: 'Black Ops One', cursive; font-size:50px;}
+
+#games {
+padding: 70px 0 0 0;
+}
+
+.newGame{
+box-shadow:20px 20px 10px #001144;
+margin-bottom:20px;
+}
+
+.sizeButton{
+padding:2px 10px;
+background:#ef9900;
+background-image:linear-gradient(#aa4400,#ef9900,#aa4400);
+border:3px outset #dad9d8;
+font-family:arial,sans-serif;
+font-size:1em;letter-spacing:0.05em;color:#fff;
+border-radius:15px;box-shadow: 10px 10px 5px #001144;
+margin-bottom:65px
+}
+.sizeButton:hover{
+background-image:linear-gradient(#cc6600,#ffbb00,#cc6600);
+}
+#gameTop{
+padding-top:80px;
+}
+.moreGames{
+padding-top: 45px;
+border-style:none;
+width:900px;
+height:370px;
+overflow-x:hidden;
+overflow-y:hidden;
+}
+.promoBoys{
+border: 0px;
+border-bottom: 10px solid blue;
+border-top: 10px solid blue;
+width: 728px;
+height: 90px;
+overflow: hidden
+}
+.promoGirls{
+border: 0px;
+border-bottom: 10px solid magenta;
+border-top: 10px solid magenta;
+width: 728px;
+height: 90px;
+overflow: hidden
+}
+.gameContainer{
+display: inline-block;
+margin: auto;
+width: 100px;
+height: 100px;
+}
+.htmlGameContainer{
+border-style: none;
+width: 720px;
+height: 480px;
+overflow-x:hidden;
+overflow-y:hidden;
+}
+#game {
+border-style: none;
+}
+
+.button2{
+border:3px solid #003dcc; margin-bottom:10px;
+border-radius: 15px 5px 15px 5px;
+font-size:12px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; display:inline-block;text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #FFFFFF;
+background-image: linear-gradient(#0055cc, #3399ff, #0055cc);
+box-shadow: 10px 10px 5px #001144;
+}
+.button2:hover{
+border:3px solid #1155dd; 
+background-image: linear-gradient(#1177ee, #44aaff, #1177ee);
+}
+
+#backContainer {
+position:fixed;
+z-index:20;
+animation-name:slideIn;
+animation-duration:5s;
+animation-fill-mode:forwards
+}
+@keyframes slideIn {
+0%{left:-200px;top:5px}
+80%{left:-200px;top:5px}
+100%{left:5px;top:5px}
+}
+
+#backContainerLower {
+position:fixed;
+z-index:20;
+animation-name:slideInLower;
+animation-duration:5s;
+animation-fill-mode:forwards
+}
+@keyframes slideInLower {
+0%{left:-200px;top:215px}
+80%{left:-200px;top:215px}
+100%{left:5px;top:215px}
+}
+
+#backButton{
+width:100px;
+height:100px
+}
+
+#promoAds1{
+	margin-bottom:15px;
+}
+
+#promoAds2{
+	margin-bottom:0px;
+}
+
+@media (max-width: 970px){
+    #backContainer{
+        display: none;
+    }
+    #backContainerLower{
+        display: none;
+    }
+}
