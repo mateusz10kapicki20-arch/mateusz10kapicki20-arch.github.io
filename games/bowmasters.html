@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+
+<title>Bowmasters Game</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Play Bowmasters!">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="../assets/gameStyle.css" rel="stylesheet">
+</head>
+
+<!--Advertisement
+ <br>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-0813719552929704" data-ad-slot="5403329250"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
+
+<div id="gameTop">
+<br>
+<h1>Bowmasters</h1>
+<div id="games">
+<iframe class="newGame" src="https://public.playtomax.com/games/bowmasters/" id="game" height="0" width="0"></iframe>
+</div><br>
+<button class="sizeButton" onclick="makeSmall()">Small</button>
+<button class="sizeButton" onclick="makeMedium()">Medium</button>
+<button class="sizeButton" onclick="makeBig()">Big</button>
+<br><br>
+</div>
+
+Advertisements<br>
+<div id="promoAds1"></div><br><br>
+
+<!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0813719552929704" data-ad-slot="1191910058"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-0813719552929704" data-ad-slot="1191910058"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>-->
+
+<br><br>More Games<br>
+<iframe class="moreGames" src="../playpip/moregames.html"></iframe><br><br>
+
+Advertisement<br>
+<div id="promoAds2"></div><br><br>
+
+<button class="button2" onclick="location.href=&quot;privacy.html&quot;">OK with cookies?</button> - Copyright &copy; <span id="copyrightYear">2016 onwards</span>. All Rights Reserved. - <button class="button2" onclick="location.href=&quot;privacy.html&quot;">Privacy Policy</button><br><br><br>
+
+<script>function makeSmall(){document.documentElement.clientHeight>400?(game.height=400,game.width=400*gameAspectRatio):(game.height=document.documentElement.clientHeight-10,game.width=(document.documentElement.clientHeight-10)*gameAspectRatio),window.location="#game",window.scrollBy(0,-5)}function makeMedium(){game.width=728,game.height=728/gameAspectRatio,window.location="#game",window.scrollBy(0,-5)}function makeBig(){for(gameWidth=gameX,gameHeight=gameY;gameWidth/gameAspectRatio<document.documentElement.clientHeight-10;)gameWidth++;for(;gameWidth+30>document.documentElement.clientWidth;)gameWidth--;game.width=gameWidth,game.height=gameWidth/gameAspectRatio,window.location="#game",window.scrollBy(0,-5)}
+var gameX=370,gameY=185;
+var gameAspectRatio=gameX/gameY,myGame=document.getElementById("game");game.width=728,game.height=728/gameAspectRatio;var year=(new Date).getFullYear();year>=2016&&(document.getElementById("copyrightYear").innerHTML=year);var ra=Math.random();ra<=.5?(document.getElementById("promoAds1").innerHTML="<iframe class=promoBoys src=../promo/promoboys.html></iframe>",document.getElementById("promoAds2").innerHTML="<iframe class=promoGirls src=../promo/promogirls.html></iframe>"):(document.getElementById("promoAds1").innerHTML="<iframe class=promoGirls src=../promo/promogirls.html></iframe>",document.getElementById("promoAds2").innerHTML="<iframe class=promoBoys src=../promo/promoboys.html></iframe>")
+</script>
+
+<div id="backContainer"><a href="../playpip-index.html"><img id="backButton" alt="Back" src="../assets/backButtonMin.svg"></a></div>
