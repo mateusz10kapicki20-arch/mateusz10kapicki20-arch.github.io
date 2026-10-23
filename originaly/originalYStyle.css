@@ -127,21 +127,6 @@ transform: translate(-50%, -50%);
 text-shadow: 3px 3px 6px #000000;
 }
 
-#backContainer {
-position:fixed;
-width:64px;
-height:64px;
-z-index:20;
-animation-name:buttonSlide;
-animation-duration:5s;
-animation-fill-mode:forwards
-}
-@keyframes buttonSlide {
-0%{left:-200px;top:5px}
-80%{left:-200px;top:5px}
-100%{left:5px;top:5px}
-}
-
 canvas#canvas { width: 512px; height: 512px; margin-top: 20px}
 canvas{
 image-rendering: optimizeSpeed;
